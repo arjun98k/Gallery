@@ -33,13 +33,36 @@ class MainActivity : AppCompatActivity() {
         taskList.add("work on resume")
         taskList.add("attend exam")
         taskList.add("improve internet presence")
+        taskList.add("complete project")
+        taskList.add("complete assignment")
+        taskList.add("bazar se bhendi")
+        taskList.add("work on resume")
+        taskList.add("attend exam")
+        taskList.add("improve internet presence")
+        taskList.add("complete project")
+        taskList.add("complete assignment")
+        taskList.add("bazar se bhendi")
+        taskList.add("work on resume")
+        taskList.add("attend exam")
+        taskList.add("improve internet presence")
+        taskList.add("complete project")
+        taskList.add("complete assignment")
+        taskList.add("bazar se bhendi")
+        taskList.add("work on resume")
 
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, taskList)
         listview.adapter = arrayAdapter
 
         listview.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(this, "you clicked on " + taskList[position], Toast.LENGTH_SHORT).show()
+            val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+            builder.setTitle("Task Selected")
+            builder.setMessage(" ${taskList[position]}")
+            builder.setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            builder.show()
         }
+
 
 
 
