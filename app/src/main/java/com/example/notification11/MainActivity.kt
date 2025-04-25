@@ -2,6 +2,8 @@ package com.example.notification11
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import com.example.notification11.databinding.ActivityMainBinding
@@ -47,11 +49,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
         createNotificationChannel()
+        val intent = Intent(this, MainActivity::class.java)
+        val pendingintent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("hello arjun bhai")
             .setContentText("kaise bhau sab tike na")
             .setSmallIcon(R.drawable.baseline_announcement_24)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingintent)
             .build()
 
         val notificationManager = NotificationManagerCompat.from(this)
